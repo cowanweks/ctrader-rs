@@ -18,7 +18,7 @@ rust-version = "1.92.0"
 license = "Apache-2.0"
 categories = ["api-bindings", "trading", "forex"]
 description = "An OpenAPI implementation library written in rust."
-keywords = ["ctrader", "forex", "CFDs", "trading", "api", "websocket", "protobuf"]
+keywords = ["ctrader", "forex", "trading", "api", "websocket"]
 documentation = "https://docs.rs/ctrader-rs"
 repository = "https://github.com/cowanweks/ctrader-rs"
 
