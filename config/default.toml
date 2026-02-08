@@ -1,0 +1,8 @@
+
+[app]
+debug = false
+version = "0.1.0"
+
+
+[ctrader]
+is_demo = true
