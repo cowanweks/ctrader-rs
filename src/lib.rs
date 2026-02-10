@@ -1,11 +1,11 @@
 mod client;
 mod error;
-mod traits;
 mod types;
 
-pub mod proto_messages;
+pub mod openapi;
 
 pub mod prelude {
-    pub use super::traits::*;
+    pub use super::client::traits::*;
+    pub use super::openapi::{self};
     pub use super::types::*;
 }

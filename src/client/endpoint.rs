@@ -17,4 +17,5 @@ impl Endpoints {
     pub const LIVE_HOST_WS_URI: &str = "wss://live.ctraderapi.com";
     pub const LIVE_HOST_URI: &str = "https://live.ctraderapi.com";
     pub const JSON_PORT: usize = 5036;
+    pub const PROTOBUF_PORT: usize = 5035;
 }

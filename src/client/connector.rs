@@ -1,4 +1,5 @@
-use crate::{error::ConnectorResult, traits::AppState};
+use super::traits::AppState;
+use crate::error::ConnectorResult;
 use tokio::net::TcpStream;
 use tokio_tungstenite::{MaybeTlsStream, WebSocketStream};
 

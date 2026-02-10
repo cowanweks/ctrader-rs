@@ -1,14 +1,34 @@
+use tonic_prost_build::Config;
+
 fn main() -> Result<(), anyhow::Error> {
-    protobuf_codegen::Codegen::new()
-        .include("protos")
-        .inputs([
-            "protos/OpenApiCommonMessages.proto",
-            "protos/OpenApiCommonModelMessages.proto",
-            "protos/OpenApiMessages.proto",
-            "protos/OpenApiModelMessages.proto",
-        ])
-        .out_dir("src/proto_messages")
-        .run()?;
+    let mut config = Config::default();
+
+    let messages = [
+        "ProtoOaApplicationAuthReq",
+        "ProtoOaAccountAuthReq",
+        "ProtoOaRefreshTokenReq",
+        "ProtoOaNewOrderReq",
+        // Add all your message types
+    ];
+
+    for msg in &messages {
+        config.type_attribute(msg, "#[serde(rename_all = \"camelCase\")]");
+    }
+
+    config
+        .out_dir("src")
+        .type_attribute(".", "#[derive(serde::Serialize, serde::Deserialize)]")
+        .compile_protos(
+            &[
+                "protos/OpenApiCommonMessages.proto",
+                "protos/OpenApiCommonModelMessages.proto",
+                "protos/OpenApiMessages.proto",
+                "protos/OpenApiModelMessages.proto",
+            ],
+            &["protos/"],
+        )?;
+
+    println!("cargo:rerun-if-changed=protos/");
 
     Ok(())
 }

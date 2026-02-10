@@ -1,5 +1,5 @@
 use config::{Config, ConfigError, Environment, File};
-use ctrader_rs::prelude::{CTraderClient, OpenAPIMessage};
+use ctrader_rs::prelude::CTraderClient;
 use serde::{Deserialize, Serialize};
 use std::env;
 
